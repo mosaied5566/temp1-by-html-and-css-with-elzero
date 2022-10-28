@@ -1,0 +1,469 @@
+/* start variable */
+:root {
+    --maincolor: #10cab7;
+    --section-background: #f6f6f6;
+    --secondary-color: #2c4755;
+}
+
+/* end variable */
+/* start component  */
+.special-heading {
+    font-size: 100px;
+    font-weight: 800;
+    text-align: center;
+    margin: 0;
+    color: #ebeced;
+}
+
+.special-heading+p {
+    text-align: center;
+    margin-top: -30px;
+    color: #777;
+}
+
+@media (max-width: 767px) {
+    .special-heading {
+        font-size: 60px;
+    }
+
+    .special-heading+p {
+        margin-top: -20px;
+    }
+}
+
+.padd {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.para {
+    color: #777;
+    line-height: 1.8;
+    font-size: 20px;
+}
+
+/* end component  */
+/* global rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.container {
+    /* to be pro make the padding and margin right and left not all */
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+html {
+    -moz-scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
+    scroll-behavior: smooth;
+}
+
+/* small (phones) */
+@media (min-width:768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* mediam */
+@media (min-width:992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* large  */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* global rules */
+/* the header starting*/
+.header {
+    padding: 20px;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    width: 60px;
+}
+
+.header .links {
+    position: relative;
+}
+
+.header .links ul {
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    margin: 0px;
+    background-color: #eee;
+    min-width: 200px;
+    right: 0;
+    top: calc(100% + 20px);
+    display: none;
+    z-index: 1;
+}
+
+.header .links:hover ul {
+    display: block;
+}
+
+.header .links ul::after {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: 5px;
+    border: 10px solid;
+    border-color: transparent transparent #f6f6f6 transparent;
+}
+
+.header .links ul li {
+    display: block;
+    padding: 10px;
+}
+
+.header .links ul li a {
+    text-decoration: none;
+    transition: .3s;
+}
+
+.header .links ul li:not(:last-child) {
+    border-bottom: 1px solid #f6f6f6;
+}
+
+.header .links ul li a:hover {
+    padding-left: 25px;
+}
+
+.header .links .icon {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30px;
+    justify-content: flex-end;
+}
+
+.header .container .links .icon span {
+    margin-bottom: 5px;
+    background-color: #333;
+    height: 2px;
+    width: 100%;
+}
+
+.header .container .links .icon span:nth-child(2) {
+    width: 50%;
+    transition: .3s;
+}
+
+.header .container .links:hover .icon span:nth-child(2) {
+    width: 100%;
+}
+
+/* the header ending*/
+/* starting landing  */
+.landing {
+    background-image: url(../img/craig-tidball-nLu8yaN7YY8-unsplash.jpg);
+    background-size: cover;
+    height: calc(100vh - 64px);
+    position: relative;
+}
+
+.landing .intro-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.landing .intro-text h1 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 50px;
+    color: var(--maincolor);
+}
+
+.landing .intro-text p {
+    font-size: 19px;
+    line-height: 1.8;
+    color: var(--maincolor);
+}
+
+/* ending landing  */
+/* start features */
+.features {
+    background-color: var(--section-background);
+}
+
+.features .container {
+    display: grid;
+    /* auto-fill يملي الاعمده على حسب المساحه البدايه هتكون 300 لغايه ملا نهايه 
+    الغرض منها ايه انه لما تقلب وضع التليفون هيخليهم فوق بعض لانه بيبدا من 300 ومفيش مساحه غير ل300 واحده فيحرصهم فوق بعض */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.features .container .feat {
+    text-align: center;
+    padding: 20px;
+    line-height: 1.8;
+}
+
+.features .container .feat .icon {
+    color: var(--maincolor);
+}
+
+.features .container .feat h2 {
+    font-weight: 800;
+}
+
+/* end features */
+/* start services */
+
+.services-content {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin-top: 100px;
+}
+
+.services-content .srv {
+    display: flex;
+    margin-bottom: 40px;
+    flex-flow: row wrap;
+}
+
+@media (max-width: 756px) {
+    .services-content .srv {
+        flex-flow: column wrap;
+        text-align: center;
+    }
+
+    .services-content .srv i {
+        padding-left: 45px;
+    }
+
+    .services-content .image {
+        display: none;
+    }
+}
+
+.services-content .srv i {
+    color: var(--maincolor);
+    flex-basis: 60px;
+    margin-left: -45px;
+}
+
+.services-content .srv h3 {
+    margin: 0 0 20px;
+}
+
+.services-content .image {
+    text-align: center;
+    position: relative;
+}
+
+.services-content .image img {
+    width: 260px;
+    height: 300px;
+}
+
+.services-content .image::after {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: 20px;
+    height: calc(100% + 100px);
+    width: 70px;
+    background-color: #333;
+    z-index: -1;
+}
+
+/* end services */
+/* start portfolio */
+.portfolio {
+    background-color: var(--section-background);
+    margin: 0 20px;
+}
+
+.portfolio .port-content {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin-top: 100px;
+}
+
+.portfolio .port-content .card {
+    background-color: white;
+}
+
+.portfolio .port-content .card img {
+    max-width: 100%;
+}
+
+.portfolio .port-content .card .info h3 {
+    font-weight: 800;
+}
+
+.portfolio .port-content .card .info {
+    padding: 20px;
+    margin: 0;
+}
+
+/* end portfolio */
+/* start about */
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+    .about .about-content {
+        display: flex;
+        flex-flow: column wrap;
+        text-align: center;
+    }
+
+    .about-content .image::before,
+    .about-content .image::after {
+        display: none;
+    }
+
+    .about-content .image {
+        margin: auto;
+        margin-bottom: 30px;
+    }
+
+    .about-content .text {
+        width: 100%;
+    }
+}
+
+.about-content .image {
+    position: relative;
+    width: 250px;
+    height: 375px;
+}
+
+.about-content .image img {
+    width: 100%;
+    height: 100%;
+}
+
+.about .about-content .image::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    right: -160px;
+    width: 120px;
+    height: 70%;
+    z-index: -1;
+    border-left: 80px solid;
+    border-bottom: 80px solid;
+    border-color: var(--maincolor);
+
+}
+
+.about-content .image::after {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -30px;
+    width: 100px;
+    height: calc(100% + 100px);
+    background-color: #eee;
+    z-index: -1;
+}
+
+.about-content .text {
+    flex-basis: calc(100% - 500px);
+}
+
+.about-content .text hr {
+    width: 50%;
+    color: var(--maincolor);
+    display: inline-block;
+    /* to make it from start not in center */
+}
+
+.about-content .text p {
+    color: black;
+}
+
+/* end about */
+/* start contact */
+.contact .link {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.contact .link h2 {
+    font-size: 35px;
+    font-weight: 800;
+    color: var(--secondary-color);
+    letter-spacing: -2px;
+    margin-bottom: 15px;
+
+}
+
+.contact .link a {
+    color: var(--maincolor);
+    font-size: 2em;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.contact .link .con-us {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+@media (max-width: 765px) {
+
+    .contact .link h2,
+    .contact .link a {
+        font-size: 1em;
+        margin: 0;
+    }
+}
+
+/* end contact */
+/* start footer */
+.footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 30px 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.footer span {
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+/* end footer */
